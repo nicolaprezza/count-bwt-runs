@@ -38,13 +38,14 @@ uint64_t count_runs(string &s){
             assert(x<=text.size());
 
             if ( x > 0 )
-            	bwt_s.push_back((unsigned char)text[x-1]);
+            	bwt_s.push_back((char)text[x-1]);
             else
             	bwt_s.push_back(0);
 
         }
 
     }
+
 
 
     sdsl::remove(cache_file_name(conf::KEY_TEXT, cc));
@@ -54,7 +55,7 @@ uint64_t count_runs(string &s){
 
 	char prev = bwt_s[0];
 
-	for(uint64_t j=0;j<bwt_s.length()+1;++j){
+	for(uint64_t j=0;j<bwt_s.length();++j){
 
 		char c = bwt_s[j];
 
